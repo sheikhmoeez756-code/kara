@@ -1,8 +1,12 @@
 "use client";
 import { useRef } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { sounds } from "@/utils/sounds";
+
+// Client-only 3D particle background (no SSR — it needs WebGL).
+const ThreeBackground = dynamic(() => import("./ThreeBackground"), { ssr: false });
 
 export default function Hero() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -46,6 +50,10 @@ export default function Hero() {
                         className="object-cover grayscale"
                     />
                 </motion.div>
+                {/* 3D animated particle field */}
+                <div className="absolute inset-0 opacity-80">
+                    <ThreeBackground />
+                </div>
                 {!reduce && (
                     <motion.div
                         className="absolute -top-1/3 left-1/4 h-[60vh] w-[60vh] rounded-full bg-primary/10 blur-[120px]"
