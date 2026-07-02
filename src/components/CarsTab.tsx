@@ -14,13 +14,13 @@ export default function CarsTab() {
     const tabs = ["FORD", "PORSCHE", "AUDI"];
 
     const cars = [
-        { name: "FORD GT", price: "$ 100.000", image: "/ford-rare.png", desc: "A very cool car and has great speed and acceleration, you can buy it with the current promo. don't miss it." },
-        { name: "PORSCHE 911", price: "$ 180.000", image: "/hero-hood.png", desc: "Timeless design meets relentless performance. The pinnacle of precision engineering and driving pleasure." },
-        { name: "AUDI R8", price: "$ 150.000", image: "/ford-rare.png", desc: "Uncompromising dynamic performance and unmistakable design. The supercar for everyday use." },
+        { name: "FORD GT", price: "$ 100.000", image: "/car-1.jpg", desc: "A very cool car and has great speed and acceleration, you can buy it with the current promo. don't miss it." },
+        { name: "PORSCHE 911", price: "$ 180.000", image: "/car-2.jpg", desc: "Timeless design meets relentless performance. The pinnacle of precision engineering and driving pleasure." },
+        { name: "AUDI R8", price: "$ 150.000", image: "/car-3.jpg", desc: "Uncompromising dynamic performance and unmistakable design. The supercar for everyday use." },
     ];
 
     return (
-        <section className="py-24 md:py-32 bg-[#090909] relative border-t border-white/5">
+        <section id="showroom" className="py-24 md:py-32 bg-[#090909] relative border-t border-white/5">
             <div className="container mx-auto px-6 md:px-12">
 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8 z-10 relative">
@@ -43,7 +43,7 @@ export default function CarsTab() {
                             Many choices of good and very rare cars here, you can get them easily cheap with us
                         </motion.p>
                         <motion.a
-                            href="#"
+                            href="/configure"
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -104,6 +104,14 @@ export default function CarsTab() {
                                     className={`object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 ${imgLoaded ? "opacity-80" : "opacity-0"}`}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#0f0f0f] to-transparent opacity-80 lg:w-1/2"></div>
+                                {/* Hover price badge */}
+                                <div className="absolute bottom-6 left-6 z-10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                                    <span className="inline-flex items-center gap-2 bg-primary text-black text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-[0_0_25px_rgba(230,255,0,0.55)]">
+                                        {cars[activeTab].price}
+                                    </span>
+                                </div>
+                                {/* Hover ring */}
+                                <div className="absolute inset-0 ring-0 group-hover:ring-2 ring-primary/40 transition-all duration-500 pointer-events-none"></div>
                             </div>
 
                             <div className="w-full lg:w-2/5 p-8 lg:p-16 flex flex-col justify-center bg-gradient-to-l from-transparent to-[#0f0f0f]">

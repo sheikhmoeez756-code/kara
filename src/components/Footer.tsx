@@ -1,3 +1,5 @@
+import { SITE } from "@/lib/site";
+
 export default function Footer() {
     return (
         <footer className="bg-[#050505] pt-24 pb-12 border-t border-white/5">
@@ -5,7 +7,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-20">
 
                     <div className="lg:col-span-4 space-y-8">
-                        <a href="#" className="flex items-center gap-3">
+                        <a href="#home" className="flex items-center gap-3">
                             <div className="w-6 h-6 flex flex-col justify-between">
                                 <div className="w-full h-1 bg-white"></div>
                                 <div className="w-full h-1 flex justify-between">
@@ -17,7 +19,7 @@ export default function Footer() {
                                     <div className="w-[40%] h-full bg-white"></div>
                                 </div>
                             </div>
-                            <span className="text-2xl font-sans font-bold tracking-wide">Kara</span>
+                            <span className="text-2xl font-sans font-bold tracking-wide">{SITE.name}</span>
                         </a>
                         <p className="text-gray-500 text-sm max-w-xs leading-relaxed">
                             get the sensation of exploring the room with us and other fans
@@ -33,26 +35,26 @@ export default function Footer() {
                         <div>
                             <h4 className="text-white font-sans font-medium text-lg mb-8">Pages</h4>
                             <ul className="space-y-4 text-xs tracking-wide text-gray-500">
-                                <li><a href="#" className="hover:text-primary hover:pl-2 transition-all block">Explore</a></li>
-                                <li><a href="#" className="hover:text-primary hover:pl-2 transition-all block">Special Deal</a></li>
-                                <li><a href="#" className="hover:text-primary hover:pl-2 transition-all block">About Us</a></li>
-                                <li><a href="#" className="hover:text-primary hover:pl-2 transition-all block">Services</a></li>
+                                <li><a href="#showroom" className="hover:text-primary hover:pl-2 transition-all block">Showroom</a></li>
+                                <li><a href="/configure" className="hover:text-primary hover:pl-2 transition-all block">Configure</a></li>
+                                <li><a href="#reviews" className="hover:text-primary hover:pl-2 transition-all block">Reviews</a></li>
+                                <li><a href="#faq" className="hover:text-primary hover:pl-2 transition-all block">FAQ</a></li>
                             </ul>
                         </div>
                         <div>
                             <h4 className="text-white font-sans font-medium text-lg mb-8">Info</h4>
                             <ul className="space-y-4 text-xs tracking-wide text-gray-500">
-                                <li><a href="#" className="hover:text-primary hover:pl-2 transition-all block">Customer Service</a></li>
-                                <li><a href="#" className="hover:text-primary hover:pl-2 transition-all block">Voucher</a></li>
-                                <li><a href="#" className="hover:text-primary hover:pl-2 transition-all block">Give Away</a></li>
-                                <li><a href="#" className="hover:text-primary hover:pl-2 transition-all block">Address</a></li>
+                                <li><a href="#faq" className="hover:text-primary hover:pl-2 transition-all block">Customer Service</a></li>
+                                <li><a href="#reviews" className="hover:text-primary hover:pl-2 transition-all block">Testimonials</a></li>
+                                <li><a href="#models" className="hover:text-primary hover:pl-2 transition-all block">Performance</a></li>
+                                <li><a href="#home" className="hover:text-primary hover:pl-2 transition-all block">Top</a></li>
                             </ul>
                         </div>
                         <div className="col-span-2 md:col-span-1">
                             <h4 className="text-white font-sans font-medium text-lg mb-8">My Account</h4>
                             <ul className="space-y-4 text-xs tracking-wide text-gray-500">
-                                <li><a href="#" className="hover:text-primary hover:pl-2 transition-all block">Profile</a></li>
-                                <li><a href="#" className="hover:text-primary hover:pl-2 transition-all block">Settings</a></li>
+                                <li><a href="/login" className="hover:text-primary hover:pl-2 transition-all block">Login</a></li>
+                                <li><a href="/login" className="hover:text-primary hover:pl-2 transition-all block">My Account</a></li>
                             </ul>
                         </div>
                     </div>

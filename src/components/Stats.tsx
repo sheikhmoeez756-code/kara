@@ -19,7 +19,7 @@ export default function Stats() {
                     <div className="relative aspect-[4/3] rounded-3xl overflow-hidden glass p-2">
                         <div className="absolute inset-0 bg-primary/10 animate-pulse mix-blend-overlay"></div>
                         {/* Using the same car image, but object-cover zooms in well enough for a detail shot */}
-                        <Image src="/hero-car.png" alt="Car detail" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover rounded-[20px] filter brightness-75 contrast-125 hover:scale-105 transition-all duration-700" style={{ objectPosition: 'left center' }} />
+                        <Image src="/car-detail.jpg" alt="Car detail" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover rounded-[20px] filter brightness-75 contrast-125 hover:scale-105 transition-all duration-700" style={{ objectPosition: 'center' }} />
                     </div>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

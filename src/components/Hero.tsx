@@ -36,13 +36,14 @@ export default function Hero() {
     return (
         <section
             ref={sectionRef}
+            id="home"
             className="relative min-h-screen w-full flex flex-col md:flex-row bg-[#090909] overflow-hidden"
         >
             {/* Self-contained cinematic background: local image + animated glow (no external deps) */}
             <div className="absolute inset-0 z-0">
                 <motion.div style={{ opacity: bgOpacity }} className="absolute inset-0">
                     <Image
-                        src="/hero-car.png"
+                        src="/car-bg.jpg"
                         alt=""
                         fill
                         priority
@@ -91,20 +92,22 @@ export default function Hero() {
                     custom={3} initial="hidden" animate="visible" variants={textVariants}
                     className="flex flex-wrap items-center gap-6"
                 >
-                    <button
+                    <a
+                        href="#showroom"
                         onMouseEnter={() => sounds.playHover()}
                         onClick={() => sounds.playClick()}
-                        className="bg-primary text-black font-bold uppercase tracking-widest text-xs px-10 py-4 hover:brightness-110 transition-all shadow-[0_0_20px_rgba(230,255,0,0.3)]"
+                        className="bg-primary text-black font-bold uppercase tracking-widest text-xs px-10 py-4 hover:brightness-110 hover:scale-[1.03] active:scale-95 transition-all shadow-[0_0_20px_rgba(230,255,0,0.3)] hover:shadow-[0_0_35px_rgba(230,255,0,0.55)]"
                     >
                         Explore
-                    </button>
-                    <button
+                    </a>
+                    <a
+                        href="#faq"
                         onMouseEnter={() => sounds.playHover()}
                         onClick={() => sounds.playClick()}
-                        className="bg-transparent border border-gray-600 text-white font-bold uppercase tracking-widest text-xs px-10 py-4 hover:border-white transition-colors"
+                        className="bg-transparent border border-gray-600 text-white font-bold uppercase tracking-widest text-xs px-10 py-4 hover:border-white hover:scale-[1.03] active:scale-95 transition-all"
                     >
                         Repair
-                    </button>
+                    </a>
                 </motion.div>
             </motion.div>
 
@@ -116,12 +119,12 @@ export default function Hero() {
                 className="absolute right-0 top-0 w-full md:w-[60%] h-[50vh] md:h-screen z-10 hidden md:block"
             >
                 <Image
-                    src="/hero-hood.png"
-                    alt="Luxury car hood"
+                    src="/car-hero.jpg"
+                    alt="Luxury sports car"
                     fill
                     priority
                     sizes="60vw"
-                    className="object-cover object-left"
+                    className="object-cover object-center"
                 />
                 {/* Gradient shadow for blending */}
                 <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#090909] to-transparent"></div>

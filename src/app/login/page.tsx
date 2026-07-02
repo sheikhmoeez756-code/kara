@@ -35,7 +35,7 @@ export default function LoginPage() {
             {/* Left side - Image & Branding */}
             <div className="hidden lg:flex w-1/2 relative bg-[#050505] items-center justify-center p-20 flex-col">
                 <div className="absolute inset-0 bg-primary/10 blur-[100px] z-0"></div>
-                <Image src="/hero-hood.png" alt="" fill sizes="50vw" className="object-cover opacity-30 mix-blend-lighten pointer-events-none" />
+                <Image src="/car-hero.jpg" alt="" fill sizes="50vw" className="object-cover opacity-30 mix-blend-lighten pointer-events-none" />
 
                 <div className="relative z-10 w-full mb-auto mt-6">
                     <Link href="/" className="flex items-center gap-3 w-fit hover:opacity-80 transition-opacity">
