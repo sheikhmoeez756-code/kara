@@ -128,16 +128,22 @@ export default function CarsTab() {
                                 </div>
 
                                 <div className="flex flex-wrap gap-4 w-full">
-                                    <button className="flex-1 min-w-[200px] bg-primary text-black font-bold uppercase tracking-widest text-xs px-8 py-5 hover:bg-white hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all">
+                                    <a href="/inventory" className="flex-1 min-w-[200px] text-center bg-primary text-black font-bold uppercase tracking-widest text-xs px-8 py-5 hover:bg-white hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all">
                                         Buy Now
-                                    </button>
-                                    <button className="flex-1 min-w-[150px] bg-transparent border border-white/20 text-white font-bold uppercase tracking-widest text-xs px-8 py-5 hover:border-white transition-colors">
-                                        Detail
-                                    </button>
+                                    </a>
+                                    <a href="/inventory" className="flex-1 min-w-[150px] text-center bg-transparent border border-white/20 text-white font-bold uppercase tracking-widest text-xs px-8 py-5 hover:border-white transition-colors">
+                                        Details
+                                    </a>
                                 </div>
                             </div>
                         </motion.div>
                     </AnimatePresence>
+                </div>
+
+                <div className="text-center mt-12">
+                    <a href="/inventory" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary hover:text-white transition-colors">
+                        View full inventory <span>→</span>
+                    </a>
                 </div>
 
             </div>

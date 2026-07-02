@@ -28,7 +28,7 @@ export default function LoginPage() {
         try {
             localStorage.setItem("kara_session", JSON.stringify({ email, at: Date.now() }));
         } catch { /* ignore storage errors */ }
-        setTimeout(() => router.push("/"), 700);
+        setTimeout(() => router.push("/garage"), 700);
     };
 
     return (

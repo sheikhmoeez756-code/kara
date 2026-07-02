@@ -9,7 +9,7 @@ import KaraLogo from "./KaraLogo";
 const links = [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
-    { label: "Showroom", href: "#showroom" },
+    { label: "Inventory", href: "/inventory" },
     { label: "Repair", href: "#repair" },
     { label: "Sell", href: "#sell" },
     { label: "FAQ", href: "#faq" },
@@ -68,7 +68,10 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-5">
+                    <a href="/garage" className="hidden md:block text-xs font-bold tracking-widest uppercase text-gray-300 hover:text-primary transition-colors">
+                        Garage
+                    </a>
                     <a href="/login" className="hidden md:block text-xs font-bold tracking-widest uppercase text-black bg-primary px-6 py-2.5 hover:bg-white hover:shadow-[0_0_15px_rgba(230,255,0,0.6)] transition-all">
                         Login
                     </a>
@@ -112,6 +115,13 @@ export default function Navbar() {
                                 className="text-primary hover:text-white transition-colors uppercase text-sm font-bold tracking-widest py-3 border-b border-white/5"
                             >
                                 Configure
+                            </a>
+                            <a
+                                href="/garage"
+                                onClick={() => setOpen(false)}
+                                className="text-white/80 hover:text-primary transition-colors uppercase text-sm tracking-widest py-3 border-b border-white/5"
+                            >
+                                Garage
                             </a>
                             <a
                                 href="/login"

@@ -4,6 +4,8 @@ import BrandsBar from "@/components/BrandsBar";
 import About from "@/components/About";
 import Features from "@/components/Features";
 import CarsTab from "@/components/CarsTab";
+import Trust from "@/components/Trust";
+import Financing from "@/components/Financing";
 import RepairService from "@/components/RepairService";
 import SellTradeIn from "@/components/SellTradeIn";
 import PerformanceGraph from "@/components/PerformanceGraph";
@@ -21,6 +23,8 @@ export default function Home() {
       <About />
       <Features />
       <CarsTab />
+      <Trust />
+      <Financing />
       <RepairService />
       <SellTradeIn />
       <PerformanceGraph />
