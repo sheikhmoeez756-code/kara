@@ -1,4 +1,5 @@
 import { SITE } from "@/lib/site";
+import KaraLogo from "./KaraLogo";
 
 export default function Footer() {
     return (
@@ -8,17 +9,7 @@ export default function Footer() {
 
                     <div className="lg:col-span-4 space-y-8">
                         <a href="#home" className="flex items-center gap-3">
-                            <div className="w-6 h-6 flex flex-col justify-between">
-                                <div className="w-full h-1 bg-white"></div>
-                                <div className="w-full h-1 flex justify-between">
-                                    <div className="w-[40%] h-full bg-white"></div>
-                                    <div className="w-[40%] h-full bg-white"></div>
-                                </div>
-                                <div className="w-full h-1 flex justify-between">
-                                    <div className="w-[40%] h-full bg-white"></div>
-                                    <div className="w-[40%] h-full bg-white"></div>
-                                </div>
-                            </div>
+                            <KaraLogo className="h-9 w-9 drop-shadow-[0_0_8px_rgba(230,255,0,0.4)]" />
                             <span className="text-2xl font-sans font-bold tracking-wide">{SITE.name}</span>
                         </a>
                         <p className="text-gray-500 text-sm max-w-xs leading-relaxed">

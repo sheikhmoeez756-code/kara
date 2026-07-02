@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { SITE } from "@/lib/site";
+import KaraLogo from "@/components/KaraLogo";
 
 const validEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
@@ -38,7 +39,8 @@ export default function LoginPage() {
                 <Image src="/car-hero.jpg" alt="" fill sizes="50vw" className="object-cover opacity-30 mix-blend-lighten pointer-events-none" />
 
                 <div className="relative z-10 w-full mb-auto mt-6">
-                    <Link href="/" className="flex items-center gap-3 w-fit hover:opacity-80 transition-opacity">
+                    <Link href="/" className="flex items-center gap-2.5 w-fit hover:opacity-80 transition-opacity">
+                        <KaraLogo className="h-9 w-9 drop-shadow-[0_0_8px_rgba(230,255,0,0.45)]" />
                         <div className="text-2xl font-sans font-bold tracking-wide text-white">{SITE.name}</div>
                     </Link>
                 </div>
@@ -61,7 +63,8 @@ export default function LoginPage() {
             {/* Right side - Form */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-6 md:p-12 relative overflow-hidden">
                 {/* Mobile Logo */}
-                <Link href="/" className="absolute top-8 left-8 flex lg:hidden items-center gap-3 z-20">
+                <Link href="/" className="absolute top-8 left-8 flex lg:hidden items-center gap-2.5 z-20">
+                    <KaraLogo className="h-8 w-8" />
                     <span className="text-2xl font-sans font-bold tracking-wide text-white">{SITE.name}</span>
                 </Link>
 

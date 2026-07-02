@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { sounds } from "@/utils/sounds";
 import { SITE } from "@/lib/site";
+import KaraLogo from "./KaraLogo";
 
 const links = [
     { label: "Home", href: "#home" },
@@ -39,7 +40,8 @@ export default function Navbar() {
         >
             <div className="container mx-auto px-6 md:px-12 flex items-center justify-between gap-16">
                 <div className="flex items-center gap-16">
-                    <a href="#home" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+                    <a href="#home" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+                        <KaraLogo className="h-8 w-8 drop-shadow-[0_0_8px_rgba(230,255,0,0.45)]" />
                         <div className="text-xl font-bold font-sans tracking-wide text-white">{SITE.name}</div>
                     </a>
 
