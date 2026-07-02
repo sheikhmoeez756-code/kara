@@ -38,8 +38,21 @@ export default function CarDetailPage({ params }: { params: { slug: string } }) 
     const car = getCar(params.slug);
     if (!car) notFound();
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Car",
+        name: car.name,
+        brand: { "@type": "Brand", name: car.brand },
+        vehicleModelDate: car.year,
+        mileageFromOdometer: { "@type": "QuantitativeValue", value: car.mileage, unitCode: "KMT" },
+        image: `${SITE.url}${car.image}`,
+        description: car.description,
+        offers: { "@type": "Offer", price: car.price, priceCurrency: "USD", availability: "https://schema.org/InStock" },
+    };
+
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <SubNav />
             <main className="min-h-screen bg-transparent relative z-10 pt-[68px]">
                 <div className="container mx-auto px-6 md:px-12 py-10 md:py-16">
@@ -85,7 +98,7 @@ export default function CarDetailPage({ params }: { params: { slug: string } }) 
                             <div className="glass rounded-3xl p-7">
                                 <p className="text-[11px] uppercase tracking-widest text-gray-500 mb-1">Price</p>
                                 <p className="text-4xl font-black text-primary mb-6">{money(car.price)}</p>
-                                <ReserveButton slug={car.slug} name={car.name} />
+                                <ReserveButton slug={car.slug} name={car.name} price={car.price} />
                                 <div className="grid grid-cols-2 gap-3 mt-5 text-[11px] text-gray-400">
                                     <span className="flex items-center gap-2"><ShieldCheck size={15} className="text-primary" /> 12-mo warranty</span>
                                     <span className="flex items-center gap-2"><RotateCcw size={15} className="text-primary" /> 7-day returns</span>

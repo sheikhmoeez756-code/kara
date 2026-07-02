@@ -51,6 +51,15 @@ export default function Footer() {
                     </div>
 
                 </div>
+
+                <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p className="text-gray-600 text-xs">&copy; 2026 {SITE.name} Motors. All rights reserved.</p>
+                    <div className="flex items-center gap-6 text-xs text-gray-500">
+                        <a href="/privacy" className="hover:text-primary transition-colors">Privacy</a>
+                        <a href="/terms" className="hover:text-primary transition-colors">Terms</a>
+                        <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+                    </div>
+                </div>
             </div>
         </footer>
     );

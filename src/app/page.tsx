@@ -12,6 +12,7 @@ import PerformanceGraph from "@/components/PerformanceGraph";
 import Testimonials from "@/components/Testimonials";
 import Booking from "@/components/Booking";
 import FAQ from "@/components/FAQ";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -31,6 +32,7 @@ export default function Home() {
       <Testimonials />
       <Booking />
       <FAQ />
+      <Contact />
       <Footer />
     </main>
   );

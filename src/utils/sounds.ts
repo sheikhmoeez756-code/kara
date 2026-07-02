@@ -3,6 +3,24 @@
 class SoundEngine {
     private ctx: AudioContext | null = null;
     private masterGain: GainNode | null = null;
+    private muted = false;
+
+    constructor() {
+        if (typeof window !== "undefined") {
+            this.muted = localStorage.getItem("kara_muted") === "1";
+        }
+    }
+
+    public isMuted() {
+        return this.muted;
+    }
+
+    public setMuted(m: boolean) {
+        this.muted = m;
+        if (typeof window !== "undefined") {
+            localStorage.setItem("kara_muted", m ? "1" : "0");
+        }
+    }
 
     private init() {
         if (typeof window === "undefined") return;
@@ -24,6 +42,7 @@ class SoundEngine {
 
     public playHover() {
         try {
+            if (this.muted) return;
             this.init();
             if (!this.ctx || !this.masterGain) return;
 
@@ -48,6 +67,7 @@ class SoundEngine {
 
     public playClick() {
         try {
+            if (this.muted) return;
             this.init();
             if (!this.ctx || !this.masterGain) return;
 
@@ -73,6 +93,7 @@ class SoundEngine {
     /** Short “rev” stinger when the intro preloader completes (Web Audio, no asset file). */
     public playPreloaderDismiss() {
         try {
+            if (this.muted) return;
             this.init();
             if (!this.ctx || !this.masterGain) return;
 

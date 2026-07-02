@@ -7,7 +7,7 @@ import { Heart, Package, Wrench, LogOut, ArrowRight } from "lucide-react";
 import SubNav from "@/components/SubNav";
 import Footer from "@/components/Footer";
 import { getCar, money } from "@/lib/cars";
-import { getSession, getSaved, getReservations, removeReservation, toggleSaved } from "@/lib/garage";
+import { getSession, getSaved, getReservations, removeReservation, toggleSaved, getServices, type ServiceRecord } from "@/lib/garage";
 
 export default function GaragePage() {
     const router = useRouter();
@@ -15,10 +15,12 @@ export default function GaragePage() {
     const [email, setEmail] = useState<string | null>(null);
     const [saved, setSaved] = useState<string[]>([]);
     const [reserved, setReserved] = useState<string[]>([]);
+    const [services, setServices] = useState<ServiceRecord[]>([]);
 
     const refresh = () => {
         setSaved(getSaved());
         setReserved(getReservations().map((r) => r.slug));
+        setServices(getServices());
     };
 
     useEffect(() => {
@@ -127,9 +129,26 @@ export default function GaragePage() {
                     {/* Service history */}
                     <section>
                         <h2 className="flex items-center gap-2 text-lg font-bold uppercase tracking-wide mb-5"><Wrench size={18} className="text-primary" /> Service History</h2>
-                        <p className="text-gray-500 text-sm p-6 rounded-2xl border border-dashed border-white/10">
-                            No service records yet. <Link href="/#booking" className="text-primary hover:underline">Book a service →</Link> and we&apos;ll collect your car from your door.
-                        </p>
+                        {services.length === 0 ? (
+                            <p className="text-gray-500 text-sm p-6 rounded-2xl border border-dashed border-white/10">
+                                No service records yet. <Link href="/#booking" className="text-primary hover:underline">Book a service →</Link> and we&apos;ll collect your car from your door.
+                            </p>
+                        ) : (
+                            <div className="space-y-3">
+                                {services.map((s, i) => (
+                                    <div key={i} className="flex items-center gap-4 p-4 rounded-2xl border border-white/5 bg-white/[0.02]">
+                                        <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                                            <Wrench size={18} />
+                                        </div>
+                                        <div className="flex-grow min-w-0">
+                                            <p className="font-bold text-sm truncate">{s.type} — {s.car}</p>
+                                            <p className="text-gray-500 text-xs">Scheduled for {s.date}</p>
+                                        </div>
+                                        <span className="text-[10px] uppercase tracking-widest text-primary">Booked</span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </section>
                 </div>
             </main>

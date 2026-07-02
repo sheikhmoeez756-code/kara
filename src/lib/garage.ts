@@ -1,6 +1,7 @@
 // Front-end demo persistence for saved cars, reservations, and session.
 const SAVED = "kara_saved";
 const RES = "kara_reservations";
+const SERVICES = "kara_services";
 const SESSION = "kara_session";
 
 const read = <T,>(key: string, fallback: T): T => {
@@ -35,5 +36,14 @@ export const addReservation = (slug: string): Reservation[] => {
 export const removeReservation = (slug: string): Reservation[] => {
     const next = getReservations().filter((r) => r.slug !== slug);
     localStorage.setItem(RES, JSON.stringify(next));
+    return next;
+};
+
+export type ServiceRecord = { type: string; car: string; date: string; at: number };
+
+export const getServices = (): ServiceRecord[] => read<ServiceRecord[]>(SERVICES, []);
+export const addService = (rec: Omit<ServiceRecord, "at">): ServiceRecord[] => {
+    const next = [{ ...rec, at: Date.now() }, ...getServices()];
+    localStorage.setItem(SERVICES, JSON.stringify(next));
     return next;
 };

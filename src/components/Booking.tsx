@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, CheckCircle2 } from "lucide-react";
+import { addService } from "@/lib/garage";
 
 const validEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
@@ -18,6 +19,7 @@ export default function Booking() {
         if (form.name.trim().length < 2) return setError("Please enter your name.");
         if (!validEmail(form.email)) return setError("Please enter a valid email.");
         if (!form.date) return setError("Please choose a date.");
+        addService({ type: form.type, car: form.car, date: form.date });
         setDone(true);
     };
 

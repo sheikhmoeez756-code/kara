@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { sounds } from "@/utils/sounds";
 import { SITE } from "@/lib/site";
 import KaraLogo from "./KaraLogo";
+import { getSaved, getReservations } from "@/lib/garage";
 
 const links = [
     { label: "Home", href: "#home" },
@@ -18,11 +19,23 @@ const links = [
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
+    const [garageCount, setGarageCount] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const update = () => setGarageCount(getSaved().length + getReservations().length);
+        update();
+        window.addEventListener("focus", update);
+        window.addEventListener("storage", update);
+        return () => {
+            window.removeEventListener("focus", update);
+            window.removeEventListener("storage", update);
+        };
     }, []);
 
     // Lock body scroll while the mobile menu is open.
@@ -69,8 +82,11 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-5">
-                    <a href="/garage" className="hidden md:block text-xs font-bold tracking-widest uppercase text-gray-300 hover:text-primary transition-colors">
+                    <a href="/garage" className="hidden md:flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase text-gray-300 hover:text-primary transition-colors">
                         Garage
+                        {garageCount > 0 && (
+                            <span className="text-black bg-primary text-[10px] font-bold rounded-full min-w-[18px] h-[18px] px-1 flex items-center justify-center">{garageCount}</span>
+                        )}
                     </a>
                     <a href="/login" className="hidden md:block text-xs font-bold tracking-widest uppercase text-black bg-primary px-6 py-2.5 hover:bg-white hover:shadow-[0_0_15px_rgba(230,255,0,0.6)] transition-all">
                         Login
