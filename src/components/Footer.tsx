@@ -2,7 +2,7 @@ import { SITE } from "@/lib/site";
 
 export default function Footer() {
     return (
-        <footer className="bg-[#050505] pt-24 pb-12 border-t border-white/5">
+        <footer className="bg-[#050505]/80 pt-24 pb-12 border-t border-white/5">
             <div className="container mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-20">
 

@@ -36,7 +36,7 @@ const fadeUp = {
 
 export default function RepairService() {
     return (
-        <section id="repair" className="py-24 md:py-32 bg-[#050505] relative border-t border-white/5 overflow-hidden">
+        <section id="repair" className="py-24 md:py-32 bg-[#050505]/80 relative border-t border-white/5 overflow-hidden">
             <div className="absolute right-0 top-1/4 w-[500px] h-[500px] bg-primary/5 blur-[160px] rounded-full pointer-events-none"></div>
 
             <div className="container mx-auto px-6 md:px-12 relative z-10">

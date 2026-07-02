@@ -24,7 +24,7 @@ export default function Booking() {
     const field = "w-full bg-black border border-white/10 text-white rounded-xl py-3.5 px-4 focus:outline-none focus:border-primary/50 transition-colors placeholder:text-gray-700";
 
     return (
-        <section id="booking" className="py-24 md:py-32 bg-[#090909] relative border-t border-white/5 overflow-hidden">
+        <section id="booking" className="py-24 md:py-32 bg-[#090909]/80 relative border-t border-white/5 overflow-hidden">
             <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[600px] h-[300px] bg-primary/5 blur-[140px] pointer-events-none"></div>
 
             <div className="container mx-auto px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-14 items-center">

@@ -15,7 +15,7 @@ export default function Testimonials() {
     ];
 
     return (
-        <section id="reviews" className="py-32 bg-[#090909]">
+        <section id="reviews" className="py-32 bg-[#090909]/80">
             <div className="container mx-auto px-6 md:px-12">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
                     <motion.h2

@@ -31,7 +31,7 @@ export default function SellTradeIn() {
     const field = "w-full bg-black border border-white/10 text-white rounded-xl py-3.5 px-4 focus:outline-none focus:border-primary/50 transition-colors placeholder:text-gray-700";
 
     return (
-        <section id="sell" className="py-24 md:py-32 bg-[#050505] relative border-t border-white/5 overflow-hidden">
+        <section id="sell" className="py-24 md:py-32 bg-[#050505]/80 relative border-t border-white/5 overflow-hidden">
             <div className="absolute right-1/4 bottom-0 w-[500px] h-[400px] bg-primary/5 blur-[150px] pointer-events-none rounded-full"></div>
 
             <div className="container mx-auto px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-14 items-center">

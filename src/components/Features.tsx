@@ -25,7 +25,7 @@ export default function Features() {
     ];
 
     return (
-        <section className="py-32 bg-[#090909] relative">
+        <section className="py-32 bg-[#090909]/80 relative">
             <div className="container mx-auto px-6 md:px-12">
                 <div className="flex flex-col lg:flex-row gap-16 justify-between items-start">
 
@@ -49,7 +49,7 @@ export default function Features() {
                             we provide service that is very satisfying to customers. has many products and needs that you need from ordinary items to rare items.
                         </motion.p>
                         <motion.a
-                            href="#"
+                            href="#reviews"
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}

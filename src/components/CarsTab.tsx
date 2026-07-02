@@ -20,7 +20,7 @@ export default function CarsTab() {
     ];
 
     return (
-        <section id="showroom" className="py-24 md:py-32 bg-[#090909] relative border-t border-white/5">
+        <section id="showroom" className="py-24 md:py-32 bg-[#090909]/80 relative border-t border-white/5">
             <div className="container mx-auto px-6 md:px-12">
 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8 z-10 relative">
