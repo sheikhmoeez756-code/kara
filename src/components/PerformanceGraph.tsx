@@ -16,7 +16,7 @@ export default function PerformanceGraph() {
     };
 
     return (
-        <section className="py-24 bg-[#090909] relative border-t border-white/5 overflow-hidden">
+        <section id="models" className="py-24 bg-[#090909] relative border-t border-white/5 overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary/5 blur-[120px] pointer-events-none rounded-full"></div>
             <div className="container mx-auto px-6 md:px-12 relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
