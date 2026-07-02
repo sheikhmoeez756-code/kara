@@ -1,37 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kara — A Dealership Without the Dealership
 
-## Getting Started
+> Buy, service, and sell the world's rarest cars — entirely online. Kara is a cinematic, fully-digital luxury car experience: browse and reserve rare cars, have them delivered to your door, and never worry about maintenance again.
 
-First, run the development server:
+**🔗 Live demo:** [kara-pi.vercel.app](https://kara-pi.vercel.app)
+
+![Next.js](https://img.shields.io/badge/Next.js-14-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38bdf8) ![Three.js](https://img.shields.io/badge/Three.js-r184-white)
+
+---
+
+## ✨ Overview
+
+Kara reimagines luxury car ownership as a concierge, no-dealership experience. It's a design-led, motion-rich marketing site **and** a functional storefront: a browsable inventory, financing tools, a customer garage, and full buy / service / sell flows — all wrapped in a dark, neon-gold aesthetic with a site-wide animated background.
+
+## 🚀 Features
+
+**Buying experience**
+- **Inventory** (`/inventory`) — filter by brand, body type, and price; live search and sorting
+- **Car detail pages** (`/inventory/[slug]`) — image gallery, full specs, highlights, and structured data (SEO)
+- **Financing calculator** — live monthly estimate from deposit, term, and trade-in
+- **Reserve flow** — login-gated modal with a refundable deposit + delivery scheduling
+- **Certification & trust** — 200-point inspection, history report, 7-day returns, warranty
+
+**Ownership**
+- **My Garage** (`/garage`) — reservations, saved cars (wishlist), and service history
+- **Auth** (`/login`) — session-based sign-in with validation
+- **Sell / Trade-In** — instant demo valuation
+
+**Services & content**
+- Repair & service tiers, test-drive / service **booking** (feeds the garage), sell/trade-in, testimonials, FAQ, contact & delivery coverage, Privacy & Terms
+
+**Experience & craft**
+- **3D configurator** (`/configure`) — customise a car in real-time with React Three Fiber
+- **Site-wide animated background** — neon particle field + drifting glows (WebGL)
+- Cinematic **preloader**, custom cursor, procedurally-synthesised **Web Audio** UI sounds (with a mute toggle)
+- Buttery smooth scrolling (Lenis), scroll-reveal animations throughout
+- Fully **responsive** with a mobile menu, and **`prefers-reduced-motion`** aware everywhere
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 14 (App Router) + TypeScript
+- **Styling:** Tailwind CSS
+- **Animation:** Framer Motion + Lenis smooth scroll
+- **3D:** Three.js via React Three Fiber & drei
+- **Icons:** lucide-react
+- **Deployment:** Vercel
+
+## 📦 Getting Started
 
 ```bash
+# install dependencies
+npm install
+
+# run the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# → http://localhost:3000
+
+# production build
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── app/                 # App Router pages & routes
+│   ├── page.tsx         # Homepage
+│   ├── inventory/       # Inventory grid + [slug] detail pages
+│   ├── garage/          # Customer dashboard
+│   ├── login/           # Auth
+│   ├── configure/       # 3D car configurator
+│   ├── privacy, terms/  # Legal pages
+│   ├── sitemap.ts, robots.ts, not-found.tsx
+│   └── layout.tsx       # Root layout (background, preloader, sound, cursor)
+├── components/          # UI + sections (Hero, About, Trust, Financing, ...)
+├── lib/                 # Data & helpers (cars, garage, site config)
+└── utils/               # Web Audio sound engine
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 Notes
 
-## Learn More
+This is a **front-end demonstration build**. Accounts, saved cars, reservations, and service records are persisted in the browser via `localStorage`, and form submissions are simulated. See the roadmap for making it fully backed by a server.
 
-To learn more about Next.js, take a look at the following resources:
+## 🗺️ Roadmap
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [ ] **Firebase** — real Auth (email/password + Google) and Firestore persistence
+- [ ] Working form submissions (email / backend)
+- [ ] Car comparison tool
+- [ ] Delivery coverage map & live concierge chat
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👤 Author
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# kara
+**Abdul Moeez Hassan** — Frontend Developer
+[GitHub](https://github.com/sheikhmoeez756-code) · [LinkedIn](https://www.linkedin.com/in/abdul-moeez-hassan-670191332/)
