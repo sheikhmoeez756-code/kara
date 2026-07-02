@@ -3,7 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { sounds } from "@/utils/sounds";
+import { SITE } from "@/lib/site";
 
+const BRAND = SITE.name.toUpperCase();
 const STORAGE_KEY = "aero_intro_done";
 /** Legacy key from previous preloader — honor it so repeat visitors are not interrupted */
 const LEGACY_STORAGE_KEY = "kara_loaded";
@@ -46,7 +48,7 @@ export default function Preloader() {
   const prefersReducedMotion = useReducedMotion();
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [vinCode, setVinCode] = useState("AERO-0000-0000");
+  const [vinCode, setVinCode] = useState(`${BRAND}-0000-0000`);
 
   const vinLine = useMemo(() => scrambleVin(vinCode, progress), [vinCode, progress]);
 
@@ -58,7 +60,7 @@ export default function Preloader() {
       return;
     }
 
-    setVinCode(`AERO-${randomVinBody()}`);
+    setVinCode(`${BRAND}-${randomVinBody()}`);
 
     const reduced = !!prefersReducedMotion;
     const minMs = reduced ? 280 : 800;
@@ -183,7 +185,7 @@ export default function Preloader() {
               transition={reduced ? { duration: 0 } : { duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="mb-3 text-[10px] font-semibold uppercase text-primary"
             >
-              AERO Motors
+              {SITE.fullName}
             </motion.p>
 
             <motion.h1
@@ -195,7 +197,7 @@ export default function Preloader() {
               className="mb-6 text-center text-5xl font-black tracking-tight text-foreground sm:text-6xl"
               style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif" }}
             >
-              AERO
+              {BRAND}
             </motion.h1>
 
             <p

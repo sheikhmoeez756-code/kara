@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { sounds } from "@/utils/sounds";
 
@@ -11,7 +12,7 @@ export default function Hero() {
         offset: ["start start", "end start"],
     });
     const reduce = !!reduceMotion;
-    const videoOpacity = useTransform(scrollYProgress, [0, 1], reduce ? [0.2, 0.2] : [0.2, 0.06]);
+    const bgOpacity = useTransform(scrollYProgress, [0, 1], reduce ? [0.25, 0.25] : [0.25, 0.08]);
     const hoodY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 56]);
     const copyY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 28]);
 
@@ -33,18 +34,25 @@ export default function Hero() {
             ref={sectionRef}
             className="relative min-h-screen w-full flex flex-col md:flex-row bg-[#090909] overflow-hidden"
         >
-            {/* Background Video for Cinematic feel as requested */}
+            {/* Self-contained cinematic background: local image + animated glow (no external deps) */}
             <div className="absolute inset-0 z-0">
-                <motion.video
-                    style={{ opacity: videoOpacity }}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover grayscale"
-                >
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-car-driving-on-a-road-at-night-4286-large.mp4" type="video/mp4" />
-                </motion.video>
+                <motion.div style={{ opacity: bgOpacity }} className="absolute inset-0">
+                    <Image
+                        src="/hero-car.png"
+                        alt=""
+                        fill
+                        priority
+                        sizes="100vw"
+                        className="object-cover grayscale"
+                    />
+                </motion.div>
+                {!reduce && (
+                    <motion.div
+                        className="absolute -top-1/3 left-1/4 h-[60vh] w-[60vh] rounded-full bg-primary/10 blur-[120px]"
+                        animate={{ opacity: [0.4, 0.75, 0.4] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-b from-[#090909] via-transparent to-[#090909]"></div>
             </div>
 
@@ -92,19 +100,24 @@ export default function Hero() {
                 </motion.div>
             </motion.div>
 
-            <div className="absolute right-0 top-0 w-full md:w-[60%] h-[50vh] md:h-screen z-10 hidden md:block">
-                <motion.img
-                    style={{ y: hoodY }}
-                    initial={{ x: 100, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+            <motion.div
+                style={{ y: hoodY }}
+                initial={{ x: 100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+                className="absolute right-0 top-0 w-full md:w-[60%] h-[50vh] md:h-screen z-10 hidden md:block"
+            >
+                <Image
                     src="/hero-hood.png"
-                    alt="Luxury Car Hood"
-                    className="w-full h-full object-cover object-left"
+                    alt="Luxury car hood"
+                    fill
+                    priority
+                    sizes="60vw"
+                    className="object-cover object-left"
                 />
                 {/* Gradient shadow for blending */}
                 <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#090909] to-transparent"></div>
-            </div>
+            </motion.div>
         </section>
     );
 }

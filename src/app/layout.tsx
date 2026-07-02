@@ -3,21 +3,22 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import Preloader from "@/components/Preloader";
+import { SITE } from "@/lib/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", weight: ["300", "400", "500", "600", "700", "800", "900"] });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const title = `${SITE.name} | ${SITE.tagline}`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: "AERO | Next-Gen Sports Cars",
-  description: "Experience the ultimate driving thrill with AERO.",
+  metadataBase: new URL(SITE.url),
+  title,
+  description: SITE.description,
   openGraph: {
-    title: "AERO | Next-Gen Sports Cars",
-    description: "Experience the ultimate driving thrill with AERO.",
+    title,
+    description: SITE.description,
     url: "/",
-    siteName: "AERO",
+    siteName: SITE.name,
     locale: "en_US",
     type: "website",
     images: [
@@ -25,14 +26,14 @@ export const metadata: Metadata = {
         url: "/hero-hood.png",
         width: 1920,
         height: 1080,
-        alt: "AERO — sports car detail",
+        alt: `${SITE.name} — luxury car detail`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AERO | Next-Gen Sports Cars",
-    description: "Experience the ultimate driving thrill with AERO.",
+    title,
+    description: SITE.description,
     images: ["/hero-hood.png"],
   },
 };

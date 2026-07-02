@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function CarsTab() {
     const [activeTab, setActiveTab] = useState(0);
@@ -94,11 +95,13 @@ export default function CarsTab() {
                                         aria-hidden
                                     />
                                 )}
-                                <img
+                                <Image
                                     src={cars[activeTab].image}
                                     alt={cars[activeTab].name}
+                                    fill
+                                    sizes="(max-width: 1024px) 100vw, 60vw"
                                     onLoad={() => setImgLoaded(true)}
-                                    className={`w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 ${imgLoaded ? "opacity-80" : "opacity-0"}`}
+                                    className={`object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 ${imgLoaded ? "opacity-80" : "opacity-0"}`}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#0f0f0f] to-transparent opacity-80 lg:w-1/2"></div>
                             </div>

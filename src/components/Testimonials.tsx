@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function Testimonials() {
     const [activeTestimonial, setActiveTestimonial] = useState(2);
@@ -49,7 +50,7 @@ export default function Testimonials() {
                             className={`relative rounded-full overflow-hidden transition-all duration-500 ${isActive ? 'w-24 h-24 ring-2 ring-primary ring-offset-4 ring-offset-[#111] shadow-[0_0_30px_rgba(230,255,0,0.4)] z-10' : 'w-16 h-16 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:scale-110'}`}
                             whileHover={isActive ? {} : { scale: 1.1 }}
                         >
-                            <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
+                            <Image src={t.avatar} alt={t.name} fill sizes="96px" className="object-cover" />
                         </motion.button>
                     );
                 })}
