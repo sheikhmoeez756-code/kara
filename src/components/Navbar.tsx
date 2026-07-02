@@ -8,10 +8,10 @@ import KaraLogo from "./KaraLogo";
 
 const links = [
     { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
     { label: "Showroom", href: "#showroom" },
     { label: "Repair", href: "#repair" },
     { label: "Sell", href: "#sell" },
-    { label: "Reviews", href: "#reviews" },
     { label: "FAQ", href: "#faq" },
 ];
 

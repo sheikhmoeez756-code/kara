@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import BrandsBar from "@/components/BrandsBar";
+import About from "@/components/About";
 import Features from "@/components/Features";
 import CarsTab from "@/components/CarsTab";
 import RepairService from "@/components/RepairService";
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <BrandsBar />
+      <About />
       <Features />
       <CarsTab />
       <RepairService />

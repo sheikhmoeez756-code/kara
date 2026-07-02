@@ -77,7 +77,7 @@ export default function Hero() {
                     custom={2} initial="hidden" animate="visible" variants={textVariants}
                     className="text-gray-400 text-sm md:text-base max-w-md mb-12 leading-relaxed"
                 >
-                    buy a car without going to the dealer, repair the car, we pick you up, you can sit in peace
+                    Buy, service, and sell the world&apos;s rarest cars — entirely online. We deliver to your door, collect for servicing, and handle everything, so you can simply enjoy the drive.
                 </motion.p>
 
                 <motion.div
